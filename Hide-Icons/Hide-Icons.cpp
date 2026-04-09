@@ -10,6 +10,7 @@ std::atomic<bool> g_active(false);
 std::atomic<bool> g_running(true);
 std::chrono::steady_clock::time_point g_lastActivityTime;
 HWND g_hDesktopIcons = NULL;
+constexpr int time_out = 30;
 
 // Функция для получения окна иконок
 HWND GetDesktopIconsWindow() {
@@ -67,7 +68,7 @@ void MonitorInactivity() {
             auto now = std::chrono::steady_clock::now();
             auto elapsed = std::chrono::duration_cast<std::chrono::seconds>(now - g_lastActivityTime).count();
 
-            if (elapsed >= 60 && iconsVisible) {
+            if (elapsed >= time_out && iconsVisible) {
                 ShowWindow(g_hDesktopIcons, SW_HIDE);
                 iconsVisible = false;
                 std::cout << "[" << std::time(nullptr) << "] Иконки скрыты (бездействие 60 сек)" << std::endl;
