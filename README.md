@@ -1,13 +1,13 @@
-# Hide-Icons <br>
-<h2>Программа для автоматического скрытия иконок рабочего стола при бездействии.</h2>
+Hide-Icons
+<h2>Program for automatic hiding of desktop icons during inactivity.</h2>
 
-Программа отслеживает активность мыши и клавиатуры через системные low-level hooks. Через 60 секунд бездействия иконки рабочего стола скрываются (ShowWindow(SW_HIDE)), при возобновлении активности — показываются обратно (SW_SHOW).
+The program monitors mouse and keyboard activity using system‑level low‑level hooks. After 60 seconds of inactivity, desktop icons are hidden (ShowWindow(SW_HIDE)); when activity resumes, they are shown again (SW_SHOW).
 
-**Основные возможности** <br>
-- Глобальное отслеживание: работает для всех приложений
-- Фоновый режим: консоль скрыта
+**Main features**
+- Global tracking: works across all applications
+- Background mode: console window is hidden
 
-**Технические особенности** <br>
-- C++ WinAPI: WH_MOUSE_LL, WH_KEYBOARD_LL хуки
+**Technical details**
+- C++ WinAPI: WH_MOUSE_LL, WH_KEYBOARD_LL hooks
 
-Для автоматического старта необходимо создать новую задачу в Планировщике задач и указать путь к .exe
+To enable automatic startup, create a new task in Task Scheduler and specify the path to the .exe file.
